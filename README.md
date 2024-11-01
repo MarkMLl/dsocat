@@ -25,6 +25,6 @@ The example image below shows the output from a "pretty but noisy" PSU.
 
 ![Screenshot](DSO-Cat_2021-01-29T09_35_07.png)
 
-Fairly extensive facilities are available allowing the backend to be rebuilt and reloaded without inrefering with the frontend.
+Fairly extensive facilities are available allowing the backend to be rebuilt and reloaded without interfering with the frontend.
 
 Wishlist: more (cheap) devices to test against etc.
