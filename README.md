@@ -13,7 +13,7 @@ Plug in the DSO112A, start the program. File -> Port should show e.g. /dev/ttyUS
 
 Connect to the device using File -> Open port.
 
-Capture a waveform as normal, then File -> XModem -> Capture to screen.
+Capture a waveform as normal, then on the interface program File -> XModem -> Capture to screen and on the DSO112A Menu -> Send Data.
 
 FFT is available under the Config menu.
 
