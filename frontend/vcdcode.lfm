@@ -1,0 +1,8 @@
+object VCDForm: TVCDForm
+  Left = 572
+  Height = 270
+  Top = 173
+  Width = 360
+  Caption = 'VCDForm'
+  LCLVersion = '2.1.0.0'
+end

@@ -1,0 +1,26 @@
+object Dso112aDriverForm: TDso112aDriverForm
+  Left = 483
+  Height = 533
+  Top = 323
+  Width = 711
+  Caption = 'Dso112aDriverForm'
+  Menu = MainMenu1
+  LCLVersion = '2.2.6.0'
+  object MainMenu1: TMainMenu
+    Left = 28
+    Top = 14
+    object MenuItemFile: TMenuItem
+      Caption = 'File'
+    end
+    object MenuItemConfig: TMenuItem
+      Caption = 'Config'
+    end
+    object MenuItemHelp: TMenuItem
+      Caption = 'Help'
+      object MenuItemHelpAbout: TMenuItem
+        Caption = 'About backend'
+        OnClick = MenuItemHelpAboutBackendClick
+      end
+    end
+  end
+end

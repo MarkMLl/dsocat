@@ -1,0 +1,760 @@
+object FormDsoCat: TFormDsoCat
+  Left = 200
+  Height = 533
+  Top = 200
+  Width = 700
+  Caption = 'DSO-Cat'
+  ClientHeight = 504
+  ClientWidth = 700
+  Menu = MainMenu1
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  Position = poDefaultPosOnly
+  LCLVersion = '2.2.6.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 21
+    Top = 483
+    Width = 700
+    Panels = <>
+    ParentFont = False
+  end
+  object PairSplitter1: TPairSplitter
+    Left = 0
+    Height = 483
+    Top = 0
+    Width = 700
+    Align = alClient
+    Position = 521
+    object PairSplitter1Left: TPairSplitterSide
+      Cursor = crArrow
+      Left = 0
+      Height = 483
+      Top = 0
+      Width = 521
+      ClientWidth = 521
+      ClientHeight = 483
+      object PairSplitter2: TPairSplitter
+        Cursor = crVSplit
+        Left = 0
+        Height = 483
+        Top = 0
+        Width = 521
+        Align = alClient
+        Position = 356
+        SplitterType = pstVertical
+        object PairSplitter2Top: TPairSplitterSide
+          Cursor = crArrow
+          Left = 0
+          Height = 356
+          Top = 0
+          Width = 521
+          ClientWidth = 521
+          ClientHeight = 356
+          OnResize = PairSplitter2TopResize
+          object PanelDisplay1: TPanel
+            Left = 0
+            Height = 326
+            Top = 30
+            Width = 521
+            Align = alClient
+            BevelOuter = bvNone
+            ClientHeight = 326
+            ClientWidth = 521
+            ParentFont = False
+            TabOrder = 0
+            object PaintBoxTextTop: TPaintBox
+              Left = 0
+              Height = 28
+              Top = 0
+              Width = 521
+              Align = alTop
+              Color = clBlack
+              ParentColor = False
+              ParentFont = False
+              OnPaint = PaintBoxTextTopPaint
+            end
+            object PanelDisplay2: TPanel
+              Left = 0
+              Height = 298
+              Top = 28
+              Width = 521
+              Align = alClient
+              BevelOuter = bvNone
+              ClientHeight = 298
+              ClientWidth = 521
+              ParentFont = False
+              TabOrder = 0
+              object PaintBoxTextBottom: TPaintBox
+                Left = 0
+                Height = 28
+                Top = 270
+                Width = 521
+                Align = alBottom
+                Color = clBlack
+                ParentColor = False
+                ParentFont = False
+                OnPaint = PaintBoxTextBottomPaint
+              end
+              object PanelDisplay3: TPanel
+                Left = 0
+                Height = 270
+                Top = 0
+                Width = 521
+                Align = alClient
+                BevelOuter = bvNone
+                ClientHeight = 270
+                ClientWidth = 521
+                ParentFont = False
+                TabOrder = 0
+                object PaintBoxTickLeft: TPaintBox
+                  Left = 0
+                  Height = 270
+                  Top = 0
+                  Width = 7
+                  Align = alLeft
+                  Color = clBlack
+                  ParentColor = False
+                  ParentFont = False
+                  OnPaint = PaintBoxTickLeftPaint
+                end
+                object PanelDisplay4: TPanel
+                  Left = 7
+                  Height = 270
+                  Top = 0
+                  Width = 514
+                  Align = alClient
+                  BevelOuter = bvNone
+                  ClientHeight = 270
+                  ClientWidth = 514
+                  ParentFont = False
+                  TabOrder = 0
+                  object PaintBoxTickRight: TPaintBox
+                    Left = 507
+                    Height = 270
+                    Top = 0
+                    Width = 7
+                    Align = alRight
+                    Color = clBlack
+                    ParentColor = False
+                    ParentFont = False
+                    OnPaint = PaintBoxTickRightPaint
+                  end
+                  object ChartFrequencyDomain: TChart
+                    Left = 0
+                    Height = 270
+                    Hint = 'Left: pan, shift+left: zoom, right: label'
+                    Top = 0
+                    Width = 507
+                    AxisList = <                    
+                      item
+                        Marks.Visible = False
+                        Marks.LabelBrush.Style = bsClear
+                        Minors = <>
+                        Title.LabelFont.Orientation = 900
+                        Title.LabelBrush.Style = bsClear
+                      end                    
+                      item
+                        Alignment = calBottom
+                        Marks.Visible = False
+                        Marks.LabelBrush.Style = bsClear
+                        Minors = <>
+                        Title.LabelBrush.Style = bsClear
+                      end>
+                    BackColor = clLime
+                    Foot.Brush.Color = clBtnFace
+                    Foot.Font.Color = clBlue
+                    Frame.Visible = False
+                    Margins.Left = 0
+                    Margins.Top = 0
+                    Margins.Right = 0
+                    Margins.Bottom = 0
+                    MarginsExternal.Left = 1
+                    MarginsExternal.Top = 1
+                    MarginsExternal.Right = 1
+                    MarginsExternal.Bottom = 1
+                    Title.Brush.Color = clBtnFace
+                    Title.Font.Color = clBlue
+                    Title.Text.Strings = (
+                      'TAChart'
+                    )
+                    Toolset = ChartToolsetFrequencyDomain
+                    Align = alClient
+                    Color = clBlack
+                    ParentShowHint = False
+                    ShowHint = True
+                    Visible = False
+                    object ChartFrequencyDomainLineSeries1: TLineSeries
+                      LinePen.Color = clBlue
+                      Marks.Format = '%2:s'
+                      Marks.Style = smsLabel
+                    end
+                    object ChartFrequencyDomainLineSeries2: TLineSeries
+                      LinePen.Color = clRed
+                      LinePen.Style = psDot
+                    end
+                    object ChartFrequencyDomainLineSeries3: TLineSeries
+                      Active = False
+                      LinePen.Color = clSkyBlue
+                      LinePen.Style = psDash
+                    end
+                  end
+                  object ChartTimeDomain: TChart
+                    Left = 0
+                    Height = 270
+                    Hint = 'Left: pan, shift+left: zoom, right: label'
+                    Top = 0
+                    Width = 507
+                    AxisList = <                    
+                      item
+                        Grid.Color = clLime
+                        Marks.Visible = False
+                        Marks.LabelBrush.Style = bsClear
+                        Minors = <>
+                        Title.LabelBrush.Style = bsClear
+                      end                    
+                      item
+                        Grid.Color = clLime
+                        Alignment = calBottom
+                        Marks.Visible = False
+                        Marks.LabelBrush.Style = bsClear
+                        Minors = <>
+                        Title.LabelBrush.Style = bsClear
+                      end>
+                    BackColor = clBlack
+                    Foot.Brush.Color = clBtnFace
+                    Foot.Font.Color = clBlue
+                    Frame.Visible = False
+                    Margins.Left = 0
+                    Margins.Top = 0
+                    Margins.Right = 0
+                    Margins.Bottom = 0
+                    MarginsExternal.Left = 1
+                    MarginsExternal.Top = 1
+                    MarginsExternal.Right = 1
+                    MarginsExternal.Bottom = 1
+                    Title.Brush.Color = clBtnFace
+                    Title.Font.Color = clBlue
+                    Title.Text.Strings = (
+                      'TAChart'
+                    )
+                    Toolset = ChartToolsetTimeDomain
+                    Align = alClient
+                    Color = clLime
+                    ParentShowHint = False
+                    ShowHint = True
+                    object ChartTimeDomainLineSeries1: TLineSeries
+                      Legend.Visible = False
+                      LinePen.Color = clYellow
+                      Marks.Format = '%2:s'
+                      Marks.Style = smsLabel
+                    end
+                    object ChartTimeDomainConstantLineZeroVolts: TConstantLine
+                      Pen.Color = clAqua
+                    end
+                    object ChartTimeDomainConstantLineTriggerTime: TConstantLine
+                      LineStyle = lsVertical
+                      Pen.Color = clAqua
+                    end
+                  end
+                end
+              end
+            end
+          end
+          object PanelButtonsTop: TPanel
+            Left = 0
+            Height = 30
+            Top = 0
+            Width = 521
+            Align = alTop
+            BevelInner = bvLowered
+            BevelOuter = bvNone
+            ParentFont = False
+            TabOrder = 1
+          end
+        end
+        object PairSplitter2Bottom: TPairSplitterSide
+          Cursor = crArrow
+          Left = 0
+          Height = 122
+          Top = 361
+          Width = 521
+          ClientWidth = 521
+          ClientHeight = 122
+          object PanelButtonsBottom: TPanel
+            Left = 0
+            Height = 30
+            Top = 0
+            Width = 521
+            Align = alTop
+            BevelInner = bvLowered
+            BevelOuter = bvNone
+            ParentFont = False
+            TabOrder = 0
+          end
+          object MemoDebug: TMemo
+            Left = 0
+            Height = 92
+            Top = 30
+            Width = 521
+            Align = alClient
+            Enabled = False
+            ParentFont = False
+            ReadOnly = True
+            ScrollBars = ssAutoBoth
+            TabOrder = 1
+          end
+        end
+      end
+    end
+    object PairSplitter1Right: TPairSplitterSide
+      Cursor = crArrow
+      Left = 526
+      Height = 483
+      Top = 0
+      Width = 174
+      ClientWidth = 174
+      ClientHeight = 483
+      object GroupBoxRightTop: TGroupBox
+        Left = 0
+        Height = 228
+        Top = 0
+        Width = 174
+        Align = alTop
+        Caption = 'Vertical'
+        ClientHeight = 208
+        ClientWidth = 172
+        ParentFont = False
+        TabOrder = 0
+        object PageControlRightTop: TPageControl
+          Left = 0
+          Height = 208
+          Top = 0
+          Width = 172
+          ActivePage = TabSheetCh1
+          Align = alClient
+          ParentFont = False
+          TabIndex = 0
+          TabOrder = 0
+          object TabSheetCh1: TTabSheet
+            Caption = 'Channel 1'
+            ClientHeight = 177
+            ClientWidth = 162
+            ParentFont = False
+            object ComboBoxVoltsPerDiv: TComboBox
+              AnchorSideLeft.Control = TabSheetCh1
+              AnchorSideTop.Control = TabSheetCh1
+              AnchorSideRight.Control = TabSheetCh1
+              AnchorSideRight.Side = asrBottom
+              Left = 4
+              Height = 31
+              Top = 8
+              Width = 154
+              Anchors = [akTop, akLeft, akRight]
+              BorderSpacing.Left = 4
+              BorderSpacing.Top = 8
+              BorderSpacing.Right = 4
+              Enabled = False
+              ItemHeight = 0
+              Items.Strings = (
+                '2 mV'
+                '5 mV'
+                '10 mV'
+                '20 mV'
+                '50 mV'
+                '0.1 V'
+                '0.2 V'
+                '0.5 V'
+                '1 V'
+                '2 V'
+                '5 V'
+                '10 V'
+                '20 V'
+              )
+              ParentFont = False
+              TabOrder = 0
+            end
+            object ComboBoxCoupling: TComboBox
+              AnchorSideLeft.Control = ComboBoxVoltsPerDiv
+              AnchorSideRight.Control = ComboBoxVoltsPerDiv
+              AnchorSideRight.Side = asrBottom
+              AnchorSideBottom.Control = TabSheetCh1
+              AnchorSideBottom.Side = asrBottom
+              Left = 4
+              Height = 31
+              Top = 138
+              Width = 154
+              Anchors = [akLeft, akRight, akBottom]
+              BorderSpacing.Bottom = 8
+              Enabled = False
+              ItemHeight = 0
+              Items.Strings = (
+                'DC'
+                'AC'
+                'Gnd'
+                'None'
+              )
+              TabOrder = 1
+            end
+          end
+          object TabSheetCh2: TTabSheet
+            Caption = 'Channel 2'
+            ParentFont = False
+            TabVisible = False
+          end
+        end
+      end
+      object GroupBoxRightBottom: TGroupBox
+        Left = 0
+        Height = 255
+        Top = 228
+        Width = 174
+        Align = alClient
+        Caption = 'Horizontal'
+        ClientHeight = 235
+        ClientWidth = 172
+        ParentFont = False
+        TabOrder = 1
+        object ComboBoxSecsPerDiv: TComboBox
+          AnchorSideLeft.Control = GroupBoxRightBottom
+          AnchorSideTop.Control = GroupBoxRightBottom
+          AnchorSideRight.Control = GroupBoxRightBottom
+          AnchorSideRight.Side = asrBottom
+          Left = 10
+          Height = 31
+          Top = 8
+          Width = 154
+          Anchors = [akTop, akLeft, akRight]
+          BorderSpacing.Left = 10
+          BorderSpacing.Top = 8
+          BorderSpacing.Right = 8
+          Enabled = False
+          ItemHeight = 0
+          Items.Strings = (
+            '1 µs'
+            '2 µs'
+            '5 µs'
+            '10 µs'
+            '20 µs'
+            '50 µs'
+            '0.1 ms'
+            '0.2 ms'
+            '0.5 ms'
+            '1 ms'
+            '2 ms'
+            '5 ms'
+            '10 ms'
+            '20 ms'
+            '50 ms'
+            '0.1 s'
+            '0.2 s'
+            '0.50 s'
+            '1 s'
+            '2 s'
+            '5 s'
+            '10 s'
+            '20 s'
+            '50 s'
+          )
+          ParentFont = False
+          TabOrder = 0
+        end
+        object ComboBoxTriggerMode: TComboBox
+          AnchorSideLeft.Control = ComboBoxSecsPerDiv
+          AnchorSideRight.Control = ComboBoxSecsPerDiv
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = ComboBoxTriggerEdge
+          Left = 10
+          Height = 31
+          Top = 157
+          Width = 154
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Bottom = 8
+          Enabled = False
+          ItemHeight = 0
+          Items.Strings = (
+            'Auto'
+            'Normal'
+            'Single'
+          )
+          TabOrder = 1
+        end
+        object ComboBoxTriggerEdge: TComboBox
+          AnchorSideLeft.Control = ComboBoxTriggerMode
+          AnchorSideRight.Control = ComboBoxTriggerMode
+          AnchorSideRight.Side = asrBottom
+          AnchorSideBottom.Control = GroupBoxRightBottom
+          AnchorSideBottom.Side = asrBottom
+          Left = 10
+          Height = 31
+          Top = 196
+          Width = 154
+          Anchors = [akLeft, akRight, akBottom]
+          BorderSpacing.Bottom = 8
+          Enabled = False
+          ItemHeight = 0
+          Items.Strings = (
+            'Falling'
+            'Rising'
+          )
+          TabOrder = 2
+        end
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 654
+    object MenuItemFile: TMenuItem
+      Caption = 'File'
+      OnClick = MenuItemFileClick
+      object MenuItemFileSelectPort: TMenuItem
+        Caption = 'Select port'
+      end
+      object MenuItemFileOpenPort: TMenuItem
+        Caption = 'Open port'
+        Enabled = False
+        OnClick = MenuItemFileOpenPortClick
+      end
+      object MenuItemFileConfigurePort: TMenuItem
+        Caption = 'Configure port...'
+        Enabled = False
+      end
+      object MenuItemFileClosePort: TMenuItem
+        Caption = 'Close port'
+        Enabled = False
+        OnClick = MenuItemFileClosePortClick
+      end
+      object MenuItemFileSeparator1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemFileXModem: TMenuItem
+        Caption = 'XModem'
+        Enabled = False
+        object MenuItemFileXModemReceive: TMenuItem
+          Caption = 'Receive to file...'
+          OnClick = MenuItemFileXModemReceiveClick
+        end
+        object MenuItemFileXModemCapture: TMenuItem
+          Caption = 'Capture to screen'
+          OnClick = MenuItemFileXModemCaptureClick
+        end
+      end
+      object MenuItemFileTestWaveform: TMenuItem
+        Caption = 'Test waveform'
+        object MenuItemFileTestWaveformSine: TMenuItem
+          Caption = 'Sine wave (1KHz, ±1V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformSineClick
+        end
+        object MenuItemFileTestWaveformSquare: TMenuItem
+          Caption = 'Square wave (1kHz, ±1V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformSquareClick
+        end
+        object MenuItemFileTestWaveformUnitPulse: TMenuItem
+          Caption = 'Unit pulse (±0.25mSec, 2V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformUnitPulseClick
+        end
+        object MenuItemFileTestWaveformRisingEdge: TMenuItem
+          Caption = 'Rising edge (2V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformRisingEdgeClick
+        end
+        object MenuItemFileTestWaveformFallingEdge: TMenuItem
+          Caption = 'Falling edge (2V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformFallingEdgeClick
+        end
+        object MenuItemFileTestWaveformRisingSaw: TMenuItem
+          Caption = 'Rising edge saw (1kHz, 0-2V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformRisingSawClick
+        end
+        object MenuItemFileTestWaveformFallingSaw: TMenuItem
+          Caption = 'Falling edge saw (1kHz, 0-2V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformFallingSawClick
+        end
+        object MenuItemFileTestWaveformTriangle: TMenuItem
+          Caption = 'Triangle wave (1kHz, ±1V, 1024 samples)'
+          OnClick = MenuItemFileTestWaveformTriangleClick
+        end
+      end
+      object MenuItemFileExportVCD: TMenuItem
+        Caption = 'Export VCD...'
+        OnClick = MenuItemFileExportVCDClick
+      end
+      object MenuItemFileExportImage: TMenuItem
+        Caption = 'Export image'
+        object MenuItemExportPNG: TMenuItem
+          Caption = 'PNG...'
+          OnClick = MenuItemExportPNGClick
+        end
+        object MenuItemExportGIF: TMenuItem
+          Caption = 'GIF...'
+          Enabled = False
+          OnClick = MenuItemExportGIFClick
+        end
+      end
+      object MenuItemFileSeparator2: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemQuit: TMenuItem
+        Caption = 'Quit'
+        OnClick = MenuItemQuitClick
+      end
+    end
+    object MenuItemEdit: TMenuItem
+      Caption = 'Edit'
+      object MenuItemEditRestoreGeometry: TMenuItem
+        Caption = 'Restore geometry'
+        OnClick = MenuItemEditRestoreGeometryClick
+      end
+      object MenuItemEditAdjustPixels: TMenuItem
+        Caption = 'Adjust screen size (pixels)'
+        object MenuItemPixels640x480: TMenuItem
+          Caption = '640 x 480'
+          OnClick = MenuItemEditAdjust640x480Click
+        end
+        object MenuItemPixels800x600: TMenuItem
+          Caption = '800 x 600'
+          OnClick = MenuItemEditAdjust800x600Click
+        end
+        object MenuItemPixels1024x768: TMenuItem
+          Caption = '1024 x 768'
+          OnClick = MenuItemEditAdjust1024x768Click
+        end
+      end
+      object MenuItemEditAdjustInches: TMenuItem
+        Caption = 'Adjust screen size (inches)'
+        object MenuItemInches4x3: TMenuItem
+          Caption = '4" x 3"'
+          OnClick = MenuItemEditAdjust4x3Click
+        end
+        object MenuItemInches5x4: TMenuItem
+          Caption = '5" x 4"'
+          OnClick = MenuItemEditAdjust5x4Click
+        end
+        object MenuItemInches7x5: TMenuItem
+          Caption = '7" x 5"'
+          OnClick = MenuItemEditAdjust7x5Click
+        end
+      end
+      object MenuItemEditAdjustISO: TMenuItem
+        Caption = 'Adjust screen size (ISO paper)'
+        object MenuItemISOA7: TMenuItem
+          Caption = 'ISO A7'
+          OnClick = MenuItemEditAdjustA7Click
+        end
+        object MenuItemISOA6: TMenuItem
+          Caption = 'ISO A6'
+          OnClick = MenuItemEditAdjustA6Click
+        end
+        object MenuItemISOA5: TMenuItem
+          Caption = 'ISO A5'
+          OnClick = MenuItemEditAdjustA5Click
+        end
+      end
+      object MenuItemCopyToClipboard: TMenuItem
+        Caption = 'Copy to clipboard'
+        OnClick = MenuItemCopyToClipboardClick
+      end
+    end
+    object MenuItemConfig: TMenuItem
+      Caption = 'Config'
+      object MenuItemConfigBackend: TMenuItem
+        Caption = 'Backend'
+        object MenuItemConfigBackendReloadOnHup: TMenuItem
+          AutoCheck = True
+          Caption = 'Reload on HUP signal'
+          Enabled = False
+        end
+        object MenuItemConfigBackendReloadOnNewVersion: TMenuItem
+          AutoCheck = True
+          Caption = 'Reload on new version'
+          Enabled = False
+        end
+        object MenuItemConfigBackendReloadOnRepoRelease: TMenuItem
+          AutoCheck = True
+          Caption = 'Reload on repo release'
+          Enabled = False
+        end
+        object MenuItemConfigBackendSeparator1: TMenuItem
+          Caption = '-'
+        end
+        object MenuItemConfigBackendReloadNow: TMenuItem
+          Caption = 'Reload now'
+          Enabled = False
+          OnClick = MenuItemConfigBackendReloadNowClick
+        end
+      end
+      object MenuItemConfigFrequencyDomain: TMenuItem
+        AutoCheck = True
+        Caption = 'Frequency domain'
+        Enabled = False
+        ShowAlwaysCheckable = True
+        OnClick = MenuItemConfigFrequencyDomainClick
+      end
+      object MenuItemConfigDebugOutput: TMenuItem
+        AutoCheck = True
+        Caption = 'Debug output'
+        ShowAlwaysCheckable = True
+        OnClick = MenuItemConfigDebugOutputClick
+      end
+    end
+    object MenuItemHelp: TMenuItem
+      Caption = 'Help'
+      object MenuItemHelpAboutFrontend: TMenuItem
+        Caption = 'About frontend'
+        OnClick = MenuItemHelpAboutFrontendClick
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 604
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = Timer1Timer
+    Left = 554
+  end
+  object ChartToolsetTimeDomain: TChartToolset
+    Left = 497
+    object ChartToolsetTimeDomainZoomDragTool1: TZoomDragTool
+      Shift = [ssShift, ssLeft]
+      Brush.Style = bsClear
+    end
+    object ChartToolsetTimeDomainPanDragTool1: TPanDragTool
+      Shift = [ssLeft]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+    end
+    object ChartToolsetTimeDomainDataPointClickTool1: TDataPointClickTool
+      Shift = [ssRight]
+      GrabRadius = 8
+      OnPointClick = ChartToolsetTimeDomainDataPointClickTool1PointClick
+    end
+  end
+  object ListChartSourceTimeDomainLeftAxis: TListChartSource
+    Left = 448
+  end
+  object ListChartSourceTimeDomainBottomAxis: TListChartSource
+    Left = 404
+  end
+  object ChartToolsetFrequencyDomain: TChartToolset
+    Left = 356
+    object ChartToolsetFrequencyDomainZoomDragTool1: TZoomDragTool
+      Shift = [ssShift, ssLeft]
+      Brush.Style = bsClear
+    end
+    object ChartToolsetFrequencyDomainPanDragTool1: TPanDragTool
+      Shift = [ssLeft]
+      LimitToExtent = [pdLeft, pdUp, pdRight, pdDown]
+    end
+    object ChartToolsetFrequencyDomainDataPointClickTool1: TDataPointClickTool
+      Shift = [ssRight]
+      GrabRadius = 16
+      OnPointClick = ChartToolsetFrequencyDomainDataPointClickTool1PointClick
+    end
+  end
+  object ListChartSourceFrequencyDomainLeftAxis: TListChartSource
+    Left = 306
+  end
+  object ListChartSourceFrequencyDomainBottomAxis: TListChartSource
+    Left = 256
+  end
+end
